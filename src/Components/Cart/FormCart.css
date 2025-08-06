@@ -1,0 +1,42 @@
+
+.anketa-container{
+    margin: 0  auto;
+    background: white;
+    padding: 30px 30px 0 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.anketa-input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+.anketa-radio {
+    display: none;
+}
+
+.anketa-radio-label {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px 0 5px 0;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: white;
+    color: #333;
+    width: 320px
+}
+
+.anketa-radio:checked + .anketa-radio-label {
+    background-color: #697ab1;  /* Зелёный */
+    color: white;
+    border-color: #4760af;
+}

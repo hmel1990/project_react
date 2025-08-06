@@ -1,0 +1,122 @@
+.cards-wrapper{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.bike-card {                                                                            /* bike_card */
+    min-height: 60vh;
+    margin: 3vh auto;
+    padding: 5vh;
+    position: relative;
+    cursor: pointer;
+
+
+
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.274);
+    transition: box-shadow 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
+
+
+
+.bike-card:hover {
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.592);
+    transform: scale(1.05);
+}
+
+.heart {
+    border-radius: 8px;
+    position: absolute;
+    top: 7%;
+    right: 7%;
+    z-index: 2;
+
+    background-image: url('/img/heart.png');
+    background-repeat: no-repeat;
+    background-position: center center; /* или center center, right center и т.п. */
+    background-size: 30px 30px; /* подгоните под ваш размер */
+    padding: 20px; /* отступ, чтобы текст не налегал на иконку */
+    background-color: rgba(31, 61, 113, 0.455);
+}
+.scales{
+    border-radius: 8px;
+
+    position: absolute;
+    top: 20%;
+    right: 7%;
+    z-index: 2;
+
+    background-image: url('/img/scales.png');
+    background-repeat: no-repeat;
+    background-position: center center; /* или center center, right center и т.п. */
+    background-size: 30px 30px; /* подгоните под ваш размер */
+    padding: 20px; /* отступ, чтобы текст не налегал на иконку */
+    background-color: rgba(31, 61, 113, 0.455);
+}
+.add-to-cart{
+    position: absolute;
+    width: 25%;
+    bottom: 2%;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+button.add-to-cart.btn-outline-primary {
+    color: #1f3d71;
+    border-color: #1f3d71;
+    background-color: rgba(31, 61, 113, 0.1);
+}
+
+button.add-to-cart.btn-outline-primary:hover {
+    background-color: #1f3d71;
+    color: white;
+}
+.discount {
+    text-align: center;
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media screen and (max-width:990px)
+{
+    .discount {
+        text-align: center;
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .add-to-cart{
+        bottom: 6%;
+        width: 40%;
+    }
+    .heart {
+        top: 20%;
+        right: 5%;
+    }
+    .scales {
+        top: 35%;
+        right: 5%;
+    }
+}
+@media screen and (max-width:1200px)
+{
+    .heart {
+        top: 20%;
+        right: 5%;
+    }
+    .scales {
+        top: 35%;
+        right: 5%;
+    }
+    .add-to-cart{
+        bottom: 6%;
+        width: 40%;
+    }
+}
