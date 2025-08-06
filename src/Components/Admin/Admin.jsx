@@ -1,41 +1,110 @@
-import {
-    CloseButton,
-    Button,
-    Dialog,
-    Portal,
-} from "@chakra-ui/react"
+import {CloseButton, Button, Dialog, Portal} from "@chakra-ui/react"
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
+
+// схема валидации с помощью Yup
+const validationSchema = Yup.object({
+    login: Yup.string()
+        .min(3, 'Логин должен содержать минимум 3 символа')
+        .required('Логин обязателен'),
+    password: Yup.string()
+        .min(3, 'Пароль должен содержать минимум 3 символа')
+        .required('Пароль обязателен'),
+});
+
 
 export default function Admin ()
 {
+const initialValues = {
+    login: '',
+    password: '',
+};
+
+    const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+
+        try {
+            if (values.login === 'hmel' && values.password === '123') {
+                setIsOpen(false)
+            }
+            else {
+                alert('Введены неверные логин или пароль')
+            }
+
+        } catch (error) {
+            alert('Произошла ошибка при отправке данных. ' + error.message);
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+
+    const navigate = useNavigate();
+
+    const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+        setIsOpen(true)
+        return () => {
+
+        };
+    }, []);
+
     return (
-        <Dialog.Root>
-            <Dialog.Trigger asChild>
-                <Button variant="outline" size="lg">
-                    Open Dialog
-                </Button>
-            </Dialog.Trigger>
+        <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
             <Portal>
                 <Dialog.Backdrop />
                 <Dialog.Positioner>
                     <Dialog.Content>
                         <Dialog.Header>
-                            <Dialog.Title>Dialog Title</Dialog.Title>
+                            <Dialog.Title>Введите логин и пароль</Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </p>
+                            <div className="anketa-container">
+                                <Formik
+                                    initialValues={initialValues}
+                                    validationSchema={validationSchema}
+                                    onSubmit={handleSubmit}
+                                >
+                                    {({ isSubmitting, setFieldValue, Values, resetForm }) => (
+                                        <Form id="adminForm">
+                                            <fieldset className="anketa-fieldset">
+
+                                                {/* имя */}
+                                                <label htmlFor="login" className="anketa-label">Имя:</label>
+                                                <Field
+                                                    autoComplete="username"
+                                                    type="text"
+                                                    id="login"
+                                                    name="login"
+                                                    className="anketa-input"
+                                                />
+                                                <ErrorMessage name="login" component="div" className="anketa-error" /><br />
+
+                                                {/* фамилия */}
+                                                <label htmlFor="password" className="anketa-label">Пароль:</label>
+                                                <Field
+                                                    autoComplete="family-name"
+                                                    type="text"
+                                                    id="password"
+                                                    name="password"
+                                                    className="anketa-input"
+                                                />
+                                                <ErrorMessage name="password" component="div" className="anketa-error" /><br />
+                                            </fieldset>
+                                        </Form>
+                                    )}
+                                </Formik>
+                            </div>
                         </Dialog.Body>
                         <Dialog.Footer>
                             <Dialog.ActionTrigger asChild>
-                                <Button variant="outline">Cancel</Button>
+                                <Button onClick={() => navigate(`/main`)}>На главную</Button>
                             </Dialog.ActionTrigger>
-                            <Button>Save</Button>
+                            <Button
+                                type="submit" form="adminForm"
+                                >Принять</Button>
                         </Dialog.Footer>
-                        <Dialog.CloseTrigger asChild>
-                            <CloseButton size="sm" />
-                        </Dialog.CloseTrigger>
                     </Dialog.Content>
                 </Dialog.Positioner>
             </Portal>
