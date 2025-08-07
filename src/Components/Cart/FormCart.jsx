@@ -246,7 +246,10 @@ export default function DialogComponent() {
                         style={{maxWidth: "750px"}}
                     >
                         <div>
-                            <Button type="reset" form="myForm">
+                            <Button type="reset" form="myForm"
+                                    style={{backgroundColor:"rgb(75, 92, 113)"}}
+                            >
+
                                 Сбросить
                             </Button>
                         </div>
@@ -254,7 +257,9 @@ export default function DialogComponent() {
                         <div>
                             <Dialog.Root>
                                 <Dialog.Trigger asChild>
-                                    <Button type="submit" form="myForm">
+                                    <Button type="submit" form="myForm"
+                                            style={{backgroundColor:"rgb(75, 92, 113)"}}
+                                    >
                                         Отправить
                                     </Button>
                                 </Dialog.Trigger>

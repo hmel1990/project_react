@@ -24,3 +24,31 @@
 
     }
 }
+
+.add-to-cart-at-page{
+    color: white !important;
+    border-color: #1f3d71!important;
+    background-color:rgb(75, 92, 113)!important;
+}
+
+.add-to-cart-at-page:hover {
+    background-color: #1f3d71;
+    color: white;
+}
+
+.add-to-cart-at-page:active:active {
+    animation: pressAnimation 0.4s ease-in-out;
+}
+
+@keyframes pressAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+

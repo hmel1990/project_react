@@ -36,7 +36,8 @@
 }
 
 .anketa-radio:checked + .anketa-radio-label {
-    background-color: #697ab1;  /* Зелёный */
+    background-color:rgb(75, 92, 113);  /* Зелёный */
     color: white;
     border-color: #4760af;
 }
+

@@ -140,6 +140,7 @@ export default function Cart() {
                         <Button
                             variant="primary"
                             className="mt-2 mt-md-0 z-1 fw-bold"
+                            style={{backgroundColor:"rgb(75, 92, 113)"}}
                             onClick={() => navigate(`/categories`)}
                         >
                             Продолжить покупки
@@ -157,6 +158,7 @@ export default function Cart() {
                             >
                                 <Dialog.Trigger asChild>
                                     <Button variant="primary"
+                                            style={{backgroundColor:"rgb(75, 92, 113)"}}
                                             className="mt-2 mt-md-0 z-1 fw-bold"
                                     >
                                         Оформить заказ

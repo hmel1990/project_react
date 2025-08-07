@@ -66,16 +66,32 @@
     transform: translateX(50%);
 }
 
+
 button.add-to-cart.btn-outline-primary {
-    color: #1f3d71;
+    color: white;
     border-color: #1f3d71;
-    background-color: rgba(31, 61, 113, 0.1);
+    background-color:rgb(75, 92, 113);
 }
 
 button.add-to-cart.btn-outline-primary:hover {
     background-color: #1f3d71;
     color: white;
 }
+.add-to-cart:active:active {
+    animation: pressAnimation 0.4s ease-in-out;
+}
+@keyframes pressAnimation {
+    0% {
+        transform: translateX(50%) scale(1);
+    }
+    50% {
+        transform: translateX(50%) scale(0.8);
+    }
+    100% {
+        transform: translateX(50%) scale(1);
+    }
+}
+
 .discount {
     text-align: center;
     position: absolute;

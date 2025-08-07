@@ -37,7 +37,9 @@ export default function ProductPage() {
                         <div>Price: {filteredBikes.price} USD.</div>
                         <div>Color: {filteredBikes.color}</div>
 
-                <Button variant="outline-primary"
+                <Button
+                        className={style["add-to-cart-at-page"]}
+                        variant="outline-primary"
                         data-id={filteredBikes.id}
                         data-name={filteredBikes.name}
                         data-price={filteredBikes.price}

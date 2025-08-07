@@ -1,0 +1,62 @@
+.about_us__columns {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    padding-bottom: 10%;
+
+}
+
+.column__img {
+    height: 90%;
+    width: 90%;
+    background: url(img/about.jpg) 0 0/cover no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+}
+.column__left{
+    width: 50%;
+    background-color: gray;
+    position: relative;
+    height: 100vh;
+}
+.column__right{
+    width: 50%;
+    display: flex;
+    justify-content: center;     /* по горизонтали */
+    align-items: center;         /* по вертикали */
+}
+.column__text {
+    font-family: 'Rondo Regular', serif;
+    width: 80%;
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+.bike_mainblock{
+    min-height: 100vh;
+    display: flex;
+    background: url(img/about_bottom_bg.jpg) 0 0/cover no-repeat;
+} /*-- "0 0/cover" чтобы на всю ширину екрана*/
+
+.bike_mainblock__content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;     /* по горизонтали */
+    align-items: center;         /* по вертикали */
+}
+
+.bike_checkout{
+    font-family: 'Roboto Serif', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.footer_wrapper {
+    margin: 0 auto;
+
+}

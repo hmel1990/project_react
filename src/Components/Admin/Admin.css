@@ -1,0 +1,36 @@
+.form_wrapper {
+    margin: 20px auto 0  auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+.form_wrapper input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+
+.submitButton_wrapper {
+    display: flex;
+    justify-content: center;
+}
+#submitButtonForUpload, #exitButtonForUpload{
+    min-width: 150px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color:rgb(75, 92, 113);
+    font-family: 'Roboto Serif', serif;
+    font-size: medium;
+    color: #ffffff;
+    cursor: pointer;
+
+}
