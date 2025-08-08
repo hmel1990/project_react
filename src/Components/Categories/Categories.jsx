@@ -28,23 +28,23 @@ export default function Categories ()
         dispatch(addBikesInCart(filteredBike));
     }
 
-    const getBikesFromDB = async ({ pageParam = 1 }, signal) => {
+    const getBikesFromDB = async ({pageParam=1}, signal) =>{
         try {
-            const offset = (pageParam - 1) * 4;
-            const response = await fetch(`/.netlify/functions/getBikes?offset=${offset}&limit=4`, { signal });
-
-            if (!response.ok) {
+            const response = await fetch(`${getBikesUrl}?offset=${(pageParam - 1) * 4}&limit=${limit}`, {
+                signal,
+            });
+            if  (!response.ok) {
                 throw new Error(`Ошибка: ${response.statusText}`);
             }
-
-            const bikes = await response.json(); // важно: backend должен возвращать JSON
+            const bikes = await response.json();
 
             return bikes;
-        } catch (e) {
-            console.log(`Произошла ошибка: ${e.message}`);
+        }
+        catch(e) {
+            console.log (`Произошла ошибка: ${e.message}`);
             return [];
         }
-    };
+    }
 
     const {
         data,
