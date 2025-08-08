@@ -7,7 +7,7 @@ import About from "../About/About.jsx";
 
 export default function Navigation_bar() {
     return (
-        <Navbar expand="lg" className=" w-100 sticky-top" style={{backgroundColor: "white" }}>
+        <Navbar expand="lg" className="test-navbar w-100 sticky-top" style={{backgroundColor: "white" }}>
             <Container fluid className="w-100">
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Brand href="/" className="me-5">

@@ -28,9 +28,11 @@ export default function Categories ()
         dispatch(addBikesInCart(filteredBike));
     }
 
-    const getBikesFromDB = async ({pageParam=1}) =>{
+    const getBikesFromDB = async ({pageParam=1}, signal) =>{
         try {
-            const response = await fetch(`${getBikesUrl}?offset=${(pageParam - 1) * 4}&limit=${limit}`);
+            const response = await fetch(`${getBikesUrl}?offset=${(pageParam - 1) * 4}&limit=${limit}`, {
+                signal,
+            });
             if  (!response.ok) {
                 throw new Error(`Ошибка: ${response.statusText}`);
             }
@@ -52,7 +54,7 @@ export default function Categories ()
         status,
     } = useInfiniteQuery({
         queryKey: ['posts'],
-        queryFn: getBikesFromDB,
+        queryFn: ({ pageParam = 1, signal }) => getBikesFromDB({ pageParam }, signal),
         getNextPageParam: (lastPage, allPages) => {
             return lastPage.length < limit ? undefined : allPages.length + 1
         },
@@ -105,7 +107,9 @@ export default function Categories ()
 
     return (
         <>
-            <div className="sticky-top d-flex justify-content-end"
+            <div
+                data-testid="test-for-list-class"
+                className="sticky-top d-flex justify-content-end"
                  style={{
                          height: '45px',
                          marginTop: "10px",
