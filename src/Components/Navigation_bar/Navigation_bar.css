@@ -1,3 +1,8 @@
+* {
+
+    font-family: 'Roboto Serif', serif;
+
+}
 .menu_contain a.nav-link {
     text-transform: uppercase;
     color: black;

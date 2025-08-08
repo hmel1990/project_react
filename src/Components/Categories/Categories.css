@@ -1,3 +1,8 @@
+* {
+
+    font-family: 'Roboto Serif', serif;
+
+}
 .cards-wrapper{
     width: 100%;
     display: flex;
