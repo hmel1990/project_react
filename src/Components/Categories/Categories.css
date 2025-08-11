@@ -7,6 +7,9 @@
     padding-bottom: 60px
 
 }
+.bike-card-text {
+    margin: 20px 0;
+}
 .cards-wrapper{
     width: 100%;
     display: flex;
