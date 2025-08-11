@@ -60,3 +60,25 @@
     margin: 0 auto;
 
 }
+
+.about_us__columns {
+    display: flex;
+    flex-wrap: wrap; /* Чтобы колонки могли переноситься */
+}
+
+.column__left,
+.column__right {
+    flex: 1; /* По умолчанию занимают по половине ширины */
+}
+
+/* Адаптив для узких экранов */
+@media (max-width: 768px) {
+    .about_us__columns {
+        flex-direction: column; /* Ставим одну под другой */
+    }
+
+    .column__left,
+    .column__right {
+        width: 100%; /* Колонки занимают всю ширину */
+    }
+}

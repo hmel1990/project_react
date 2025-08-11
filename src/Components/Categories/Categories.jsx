@@ -140,33 +140,43 @@ export default function Categories ()
                     <Container fluid className="ms-4 me-4 mt-5">
                         <Row>
                             {filteredBikes.map((product) => (
-                                <Col xs={12} md={6}
-                                     key={`${product.id}`}>
-                                <Card
-                                     onClick={() => navigate(`/product/${product.id}`)}
-                                     className="bike-card me-2 ms-2"
-                                     style={{background: `url(./img/${product.id}.jpg) center center / 80% no-repeat`}}>
+                                <Col xs={12} md={6} key={`${product.id}`}>
+                                    <Card onClick={() => navigate(`/product/${product.id}`)} className="bike-card me-2 ms-2">
+                                        {/* Картинка как тег img */}
+                                        <img
+                                            src={`./img/${product.id}.jpg`}
+                                            alt={product.name}
+                                            className="bike-card-image"
+                                        />
 
-                                    <h5>Category: {product.category}</h5>
-                                    <h5>Model name: {product.name}</h5>
+                                        {/* Текст сверху картинки */}
+                                        <div className="bike-card-text">
+                                            <h5>Category: {product.category}</h5>
+                                            <h5>Model name: {product.name}</h5>
+                                            <p>Price: {product.price} USD.</p>
+                                            <p>Color: {product.color}</p>
+                                        </div>
 
-                                    <p>Price: {product.price} USD.</p>
-                                    <p>Color: {product.color}</p>
-                                    <Button
-                                        onClick={(e)=>{
-                                            e.stopPropagation();
-                                            handleAddToCart(product.id)}}
-                                        variant="outline-primary"
-                                        className="add-to-cart" id="buybtn"
-                                        data-id={product.id} data-name={product.name}
-                                        data-price={product.price}>
-                                        В корзину
-                                    </Button>
-                                    <button className="heart"></button>
-                                    <button className="scales"></button>
-                                    <div className="discount">Price with discount: {product.price * 0.9}</div>
+                                        <Button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                handleAddToCart(product.id);
+                                            }}
+                                            variant="outline-primary"
+                                            className="add-to-cart"
+                                            id="buybtn"
+                                            data-id={product.id}
+                                            data-name={product.name}
+                                            data-price={product.price}
+                                        >
+                                            В корзину
+                                        </Button>
 
-                                </Card>
+                                        <button className="heart"></button>
+                                        <button className="scales"></button>
+
+                                        <div className="discount">Price with discount: {product.price * 0.9}</div>
+                                    </Card>
                                 </Col>
                                     ))}
                         </Row>
