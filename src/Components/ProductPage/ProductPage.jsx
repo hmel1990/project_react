@@ -32,6 +32,7 @@ export default function ProductPage() {
                 <Card.Body>
                     <Card.Title>
                         <h3>Model name: {filteredBikes.name}</h3>
+
                     </Card.Title>
                         <br/>
                         <div>Price: {filteredBikes.price} USD.</div>

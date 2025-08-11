@@ -28,20 +28,25 @@ export default function Categories ()
         dispatch(addBikesInCart(filteredBike));
     }
 
-    const getBikesFromDB = async ({pageParam=1}, signal) =>{
+    const getBikesFromDB = async ({ pageParam = 1 }, signal) => {
         try {
-            const response = await fetch(`${getBikesUrl}?offset=${(pageParam - 1) * 4}&limit=${limit}`, {
-                signal,
-            });
-            if  (!response.ok) {
-                throw new Error(`Ошибка: ${response.statusText}`);
-            }
-            const bikes = await response.json();
+            const response = await fetch(
+                `/api/dotnet/php/get_bikes_react.php?offset=${(pageParam - 1) * limit}&limit=${limit}`,
+                { signal }
+            );
 
+            if (!response.ok) {
+                throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
+            }
+
+            const bikes = await response.json();
             return bikes;
-        }
-        catch(e) {
-            console.log (`Произошла ошибка: ${e.message}`);
+        } catch (e) {
+            if (e.name === 'AbortError') {
+                console.log('Запрос был отменён');
+            } else {
+                console.error(`Произошла ошибка: ${e.message}`);
+            }
             return [];
         }
     }
@@ -142,7 +147,9 @@ export default function Categories ()
                                      className="bike-card me-2 ms-2"
                                      style={{background: `url(./img/${product.id}.jpg) center center / 80% no-repeat`}}>
 
-                                    <h3>Model name: {product.name}</h3>
+                                    <h5>Category: {product.category}</h5>
+                                    <h5>Model name: {product.name}</h5>
+
                                     <p>Price: {product.price} USD.</p>
                                     <p>Color: {product.color}</p>
                                     <Button
