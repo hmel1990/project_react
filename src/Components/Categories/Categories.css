@@ -3,6 +3,10 @@
     font-family: 'Roboto Serif', serif;
 
 }
+.card {
+    padding-bottom: 60px
+
+}
 .cards-wrapper{
     width: 100%;
     display: flex;
@@ -12,9 +16,7 @@
 }
 
 .bike-card {                                                                            /* bike_card */
-    min-height: 60vh;
     margin: 3vh auto;
-    padding: 5vh;
     position: relative;
     cursor: pointer;
 
@@ -34,6 +36,15 @@
     transform: scale(1.05);
 }
 
+.bike-card-image{
+    height: auto;
+    max-width: 60%;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .heart {
     border-radius: 8px;
     position: absolute;
@@ -148,8 +159,8 @@ button.add-to-cart.btn-outline-primary:hover {
         bottom: 6%;
         width: 40%;
     }
-}
-.card {
-    padding-bottom: 150px
+    .card {
+        padding-bottom: 80px
+    }
 
 }
